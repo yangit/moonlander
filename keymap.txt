@@ -1,5 +1,7 @@
 
 #define MODS_SHIFT_MASK (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT))
+bool is_lshift_down = false;
+bool is_rshift_down = false;
 bool is_smart_rus = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -57,9 +59,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
                 }
             }
-            return true;  // Skip all further processing of this key
+            return true; 
+        case KC_LSHIFT:
+            if (record->event.pressed) {
+                // press
+                is_lshift_down = true;
+            } else {
+                // release
+                is_lshift_down = false;
+            }
+            return true;  
+        case KC_RSHIFT:
+            if (record->event.pressed) {
+                // press
+                is_rshift_down = true;
+            } else {
+                // release
+                is_rshift_down = false;
+            }
+            return true;
         case KC_BSPACE:
-            if (keyboard_report->mods & MODS_SHIFT_MASK) {
+            if (is_lshift_down || is_rshift_down) {
                 if (record->event.pressed) {
                     // press
                     register_code(KC_DEL);
