@@ -1,0 +1,74 @@
+
+#define MODS_SHIFT_MASK (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT))
+bool is_smart_rus = false;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case RGB_SLD:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+            }
+            return false;
+        case KC_LANG9:
+            if (record->event.pressed) {
+                // press
+                if (is_smart_rus) {
+                    SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+                }
+                is_smart_rus = false;
+                layer_on(1);
+            } else {
+                // release
+            }
+            return false;  // Skip all further processing of this key
+        case KC_LANG7:
+            if (record->event.pressed) {
+                // press
+                if (is_smart_rus) {
+                    SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+                }
+                is_smart_rus = false;
+                layer_off(1);
+            } else {
+                // release
+            }
+            return false;  // Skip all further processing of this key
+        case KC_LANG8:
+            if (record->event.pressed) {
+                // press
+                if (!is_smart_rus) {
+                    SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+                }
+                is_smart_rus = true;
+                layer_on(1);
+            } else {
+                // release
+            }
+            return false;  // Skip all further processing of this key
+        case MO(3):
+            if (record->event.pressed) {
+                // press
+                if (is_smart_rus) {
+                    SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+                }
+            } else {
+                // release
+                if (is_smart_rus) {
+                    SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+                }
+            }
+            return true;  // Skip all further processing of this key
+        case KC_BSPACE:
+            if (keyboard_report->mods & MODS_SHIFT_MASK) {
+                if (record->event.pressed) {
+                    // press
+                    register_code(KC_DEL);
+                } else {
+                    unregister_code(KC_DEL);
+                }
+                return false;
+            }
+            return true;
+        }
+    return true;
+}
