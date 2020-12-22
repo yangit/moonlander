@@ -1,7 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "debug.h"
-
 // #include "keymap_german.h"
 // #include "keymap_nordic.h"
 // #include "keymap_french.h"
@@ -49,17 +48,17 @@ enum custom_keycodes
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_moonlander(
-        KC_TRANSPARENT, KC_TRANSPARENT, KC_LANG7, KC_LANG8, KC_LANG9, TO(1), KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, MO(6), KC_TRANSPARENT,
-        KC_TRANSPARENT, KC_Q, KC_D, KC_R, KC_W, KC_LANG3, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO, KC_F, KC_U, KC_P, KC_J, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_LANG7, KC_LANG8, KC_LANG9, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, MO(6), KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_Q, KC_D, KC_R, KC_W, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_F, KC_U, KC_P, KC_J, KC_TRANSPARENT,
         KC_ESCAPE, KC_A, KC_S, KC_H, KC_T, KC_G, KC_TRANSPARENT, KC_TRANSPARENT, KC_Y, KC_N, KC_E, KC_O, KC_I, MO(4),
-        KC_TAB, KC_Z, KC_X, KC_M, KC_C, KC_LANG4, KC_NO, KC_L, KC_V, KC_K, KC_B, KC_TRANSPARENT,
+        KC_TAB, KC_Z, KC_X, KC_M, KC_C, KC_TRANSPARENT, KC_TRANSPARENT, KC_L, KC_V, KC_K, KC_B, KC_TRANSPARENT,
         KC_BSPACE, KC_LCTRL, KC_LALT, KC_LGUI, LGUI(KC_SPACE), KC_LSHIFT, MO(10), KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
         MO(7), MO(2), KC_SPACE, KC_BSPACE, MO(3), KC_RSHIFT),
     [1] = LAYOUT_moonlander(
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_TRANSPARENT, KC_TRANSPARENT, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_A, KC_S, KC_D, KC_F, KC_G, KC_TRANSPARENT, KC_TRANSPARENT, KC_H, KC_J, KC_K, KC_L, KC_SCOLON, KC_TRANSPARENT,
-        KC_TRANSPARENT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMMA, KC_DOT, KC_QUOTE, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_Z, KC_X, KC_V, KC_C, KC_B, KC_N, KC_M, KC_COMMA, KC_DOT, KC_QUOTE, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_BSLASH, KC_LBRACKET, KC_RBRACKET, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT),
     [2] = LAYOUT_moonlander(
@@ -95,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRANSPARENT, TOGGLE_LAYER_COLOR, RGB_TOG, RGB_SPD, RGB_HUD, RGB_SAD, RGB_VAD, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, AU_OFF, AU_ON, AU_TOG, WEBUSB_PAIR, RESET, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-        TO(12), KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+        TO(13), KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT),
     [7] = LAYOUT_moonlander(
         KC_TRANSPARENT, LALT(LCTL(LSFT(KC_Z))), LALT(LCTL(LGUI(LSFT(KC_X)))), LALT(LCTL(LGUI(LSFT(KC_M)))), LALT(LCTL(LGUI(LSFT(KC_C)))), LALT(LCTL(LSFT(KC_B))), KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -133,20 +132,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT),
     [12] = LAYOUT_moonlander(
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(13), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14),
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14),
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14),
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14),
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14),
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14)),
+        KC_TRANSPARENT, KC_1, KC_2, KC_3, KC_4, KC_5, KC_TRANSPARENT, KC_TRANSPARENT, KC_6, KC_7, KC_8, KC_9, KC_0, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_TRANSPARENT, KC_TRANSPARENT, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_A, KC_S, KC_D, KC_F, KC_G, KC_TRANSPARENT, KC_TRANSPARENT, KC_H, KC_J, KC_K, KC_L, KC_SCOLON, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_BSLASH, KC_LBRACKET, KC_RBRACKET, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT),
     [13] = LAYOUT_moonlander(
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), KC_TRANSPARENT, MO(14), MO(14), MO(14), MO(14), MO(14), MO(14),
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14),
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14),
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14),
-        TO(0), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14), MO(14),
-        MO(14), MO(14), MO(14), MO(14), MO(14), MO(14)),
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(14), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15),
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15),
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(13), MO(15), MO(15),
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15),
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15),
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15)),
     [14] = LAYOUT_moonlander(
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), KC_TRANSPARENT, MO(15), MO(15), MO(15), MO(15), MO(15), MO(15),
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15),
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15),
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15),
+        TO(0), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15), MO(15),
+        MO(15), MO(15), MO(15), MO(15), MO(15), MO(15)),
+    [15] = LAYOUT_moonlander(
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
@@ -164,9 +170,9 @@ void keyboard_post_init_user(void)
 }
 
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
-    [0] = {{0, 0, 0}, {0, 0, 0}, {134, 255, 213}, {134, 255, 213}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 183, 238}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {105, 255, 255}, {31, 255, 255}, {146, 224, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {146, 224, 255}, {0, 0, 0}, {0, 0, 0}, {85, 203, 158}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 183, 238}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {146, 224, 255}, {249, 228, 255}, {146, 224, 255}, {249, 228, 255}},
+    [0] = {{0, 0, 0}, {0, 0, 0}, {134, 255, 213}, {134, 255, 213}, {134, 255, 213}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {105, 255, 255}, {31, 255, 255}, {146, 224, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {146, 224, 255}, {0, 0, 0}, {0, 0, 0}, {85, 203, 158}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {146, 224, 255}, {249, 228, 255}, {146, 224, 255}, {249, 228, 255}},
 
-    [1] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 204, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 204, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 204, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 204, 255}, {0, 0, 0}, {0, 0, 0}, {0, 204, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
+    [1] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 204, 255}, {0, 204, 255}, {0, 204, 255}, {0, 204, 255}, {0, 204, 255}, {0, 204, 255}, {0, 204, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 204, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 204, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 204, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 204, 255}, {0, 204, 255}, {0, 204, 255}, {0, 204, 255}, {0, 204, 255}, {0, 204, 255}, {0, 204, 255}},
 
     [2] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {31, 255, 255}, {35, 255, 255}, {31, 255, 255}, {31, 255, 255}, {31, 255, 255}, {0, 0, 0}, {35, 255, 255}, {31, 255, 255}, {31, 255, 255}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {31, 255, 255}, {0, 0, 0}, {31, 255, 255}, {0, 0, 0}, {31, 255, 255}, {31, 255, 255}, {0, 0, 0}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
 
@@ -181,6 +187,8 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
     [8] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {105, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {105, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {105, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {105, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
 
     [11] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {105, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
+
+    [12] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {85, 203, 158}, {0, 0, 0}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}},
 
 };
 
@@ -241,6 +249,9 @@ void rgb_matrix_indicators_user(void)
   case 11:
     set_layer_color(11);
     break;
+  case 12:
+    set_layer_color(12);
+    break;
   default:
     if (rgb_matrix_get_flags() == LED_FLAG_NONE)
       rgb_matrix_set_color_all(0, 0, 0);
@@ -248,8 +259,38 @@ void rgb_matrix_indicators_user(void)
   }
 }
 
+// 
 #define MODS_SHIFT_MASK (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT))
 bool is_smart_rus = false;
+bool is_smart_rus_disable_counter = 0;
+
+void smart_rus_toggle(keyrecord_t *record)
+{
+  if (record->event.pressed)
+  {
+    // press
+    if (is_smart_rus)
+    {
+      is_smart_rus_disable_counter++;
+      if (is_smart_rus_disable_counter == 1)
+      {
+        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+      }
+    }
+  }
+  else
+  {
+    // release
+    if (is_smart_rus)
+    {
+      if (is_smart_rus_disable_counter == 1)
+      {
+        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+      }
+      is_smart_rus_disable_counter--;
+    }
+  }
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
@@ -265,76 +306,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       rgblight_mode(1);
     }
     return false;
-  case KC_LANG9:
-    if (record->event.pressed)
-    {
-      // press
-      if (is_smart_rus)
-      {
-        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
-      }
-      is_smart_rus = false;
-      layer_on(1);
-    }
-    else
-    {
-      // release
-    }
-    return false; // Skip all further processing of this key
-  case KC_LANG7:
-    if (record->event.pressed)
-    {
-      // press
-      if (is_smart_rus)
-      {
-        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
-      }
-      is_smart_rus = false;
-      layer_off(1);
-    }
-    else
-    {
-      // release
-    }
-    return false; // Skip all further processing of this key
-  case KC_LANG8:
-    if (record->event.pressed)
-    {
-      // press
-      if (!is_smart_rus)
-      {
-        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
-      }
-      is_smart_rus = true;
-      layer_on(1);
-    }
-    else
-    {
-      // release
-    }
-    return false; // Skip all further processing of this key
-  case MO(3):
-    if (record->event.pressed)
-    {
-      // press
-      if (is_smart_rus)
-      {
-        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
-      }
-    }
-    else
-    {
-      // release
-      if (is_smart_rus)
-      {
-        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
-      }
-    }
-    return true;
   case KC_BSPACE:
     if (record->event.pressed)
     {
-      // if (get_mods() & MOD_BIT(KC_LSHIFT) || get_mods() & MOD_BIT(KC_RSHIFT))
       if (get_mods() & MODS_SHIFT_MASK)
       {
         register_code(KC_DEL);
@@ -350,6 +324,69 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       unregister_code(KC_BSPACE);
     }
     return false;
+  case KC_LANG9: // QWERTY
+    if (record->event.pressed)
+    {
+      // press
+      if (is_smart_rus)
+      {
+        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+      }
+      is_smart_rus = false;
+      layer_off(1);
+      layer_on(12);
+    }
+    else
+    {
+      // release
+    }
+    return false; // Skip all further processing of this key
+  case KC_LANG7: // English
+    if (record->event.pressed)
+    {
+      // press
+      if (is_smart_rus)
+      {
+        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+      }
+      is_smart_rus = false;
+      layer_off(1);
+      layer_off(12);
+    }
+    else
+    {
+      // release
+    }
+    return false; // Skip all further processing of this key
+  case KC_LANG8: // Russian
+    if (record->event.pressed)
+    {
+      // press
+      if (!is_smart_rus)
+      {
+        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+      }
+      is_smart_rus = true;
+      layer_on(1);
+      layer_off(12);
+    }
+    else
+    {
+      // release
+    }
+    return false; // Skip all further processing of this key
+  case MO(2):
+    smart_rus_toggle(record);
+    return true;
+  case MO(3):
+    smart_rus_toggle(record);
+    return true;
+  case MO(4):
+    smart_rus_toggle(record);
+    return true;
+  case MO(7):
+    smart_rus_toggle(record);
+    return true;
   }
   return true;
 }
