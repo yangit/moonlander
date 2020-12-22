@@ -298,15 +298,20 @@ void smart_rus_toggle_mod(uint16_t keycode, keyrecord_t *record)
 {
   if (record->event.pressed)
   {
-    smart_rus_toggle(record);
-    layer_off(1);
+    if (smart_rus_enabled){
+      smart_rus_toggle(record);
+      layer_off(1);
+    }
     register_code(keycode);
   }
   else
   {
     unregister_code(keycode);
-    layer_on(1);
-    smart_rus_toggle(record);
+    if (smart_rus_enabled)
+    {
+      layer_on(1);
+      smart_rus_toggle(record);
+    }
   }
 }
 
