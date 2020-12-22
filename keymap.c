@@ -299,11 +299,13 @@ void smart_rus_toggle_mod(uint16_t keycode, keyrecord_t *record)
   if (record->event.pressed)
   {
     smart_rus_toggle(record);
+    layer_off(1);
     register_code(keycode);
   }
   else
   {
     unregister_code(keycode);
+    layer_on(1);
     smart_rus_toggle(record);
   }
 }
@@ -316,6 +318,7 @@ void oneshot_mods_changed_user(uint8_t mods)
     if (smart_rus_enabled)
     {
       smart_rus_osm = true;
+      layer_off(1);
     }
   }
   if (!mods)
@@ -336,8 +339,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
   {
     smart_rus_first_after = false;
     unregister_code(keycode);
-    xprintf("smart_rus_first_after");
+    xprintf("smart_rus_first_after\n");
     SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+    layer_on(1);
     return false;
   }
   switch (keycode)
@@ -376,6 +380,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       }
       smart_rus_enabled = false;
       smart_rus_disable_counter = 0;
+      smart_rus_osm = false;
+      smart_rus_first_after = false;
       layer_off(1);
       layer_on(12);
     }
@@ -394,6 +400,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       }
       smart_rus_enabled = false;
       smart_rus_disable_counter = 0;
+      smart_rus_osm = false;
+      smart_rus_first_after = false;
       layer_off(1);
       layer_off(12);
     }
@@ -412,6 +420,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       }
       smart_rus_enabled = true;
       smart_rus_disable_counter = 0;
+      smart_rus_osm = false;
+      smart_rus_first_after = false;
       layer_on(1);
       layer_off(12);
     }
