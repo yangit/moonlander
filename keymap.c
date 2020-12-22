@@ -260,16 +260,19 @@ void rgb_matrix_indicators_user(void)
 }
 
 //
-#define MODS_SHIFT_MASK (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT))
+#define SHIFT_ANY (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT))
+#define CTRL_ANY (MOD_BIT(KC_LCTRL) | MOD_BIT(KC_RCTRL))
+#define ALT_ANY (MOD_BIT(KC_LALT) | MOD_BIT(KC_RALT))
+#define GUI_ANY (MOD_BIT(KC_LGUI) | MOD_BIT(KC_RGUI))
+
 bool is_smart_rus = false;
-bool is_smart_rus_disable_counter = 0;
+int is_smart_rus_disable_counter = 0;
 
 void smart_rus_toggle(keyrecord_t *record)
 {
-  if (record->event.pressed)
+  if (is_smart_rus)
   {
-    // press
-    if (is_smart_rus)
+    if (record->event.pressed)
     {
       if (is_smart_rus_disable_counter == 0)
       {
@@ -277,11 +280,7 @@ void smart_rus_toggle(keyrecord_t *record)
       }
       is_smart_rus_disable_counter++;
     }
-  }
-  else
-  {
-    // release
-    if (is_smart_rus)
+    else
     {
       is_smart_rus_disable_counter--;
       if (is_smart_rus_disable_counter == 0)
@@ -289,107 +288,133 @@ void smart_rus_toggle(keyrecord_t *record)
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
     }
+    xprintf("A,%d,c%02d,r%02d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, is_smart_rus, is_smart_rus_disable_counter);
   }
-  xprintf("A,%d,c%02d,r%02d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, is_smart_rus, is_smart_rus_disable_counter);
+}
+
+void smart_rus_toggle_mod(uint16_t keycode, keyrecord_t *record)
+{
+  if (record->event.pressed)
+  {
+    smart_rus_toggle(record);
+    register_code(keycode);
+  }
+  else
+  {
+    unregister_code(keycode);
+    smart_rus_toggle(record);
+  }
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
+    xprintf("B,%d,c%02d,r%02d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, is_smart_rus, is_smart_rus_disable_counter);
+    // if (get_mods() & (GUI_ANY|ALT_ANY|CTRL_ANY)) {
+    // if (get_mods() & GUI_ANY) {
+    //   xprintf("mods rus\n");
+    //   smart_rus_toggle(record);
+    // }
 
-  xprintf("B,%d,c%02d,r%02d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, is_smart_rus, is_smart_rus_disable_counter);
-
-  switch (keycode)
-  {
-  case RGB_SLD:
-    if (record->event.pressed)
+    switch (keycode)
     {
-      rgblight_mode(1);
-    }
-    return false;
-  case KC_BSPACE:
-    if (record->event.pressed)
-    {
-      if (get_mods() & MODS_SHIFT_MASK)
+    case RGB_SLD:
+      if (record->event.pressed)
       {
-        register_code(KC_DEL);
+        rgblight_mode(1);
+      }
+      return false;
+    case KC_BSPACE:
+      if (record->event.pressed)
+      {
+        if (get_mods() & SHIFT_ANY)
+        {
+          register_code(KC_DEL);
+        }
+        else
+        {
+          register_code(KC_BSPACE);
+        }
       }
       else
       {
-        register_code(KC_BSPACE);
+        unregister_code(KC_DEL);
+        unregister_code(KC_BSPACE);
       }
-    }
-    else
-    {
-      unregister_code(KC_DEL);
-      unregister_code(KC_BSPACE);
-    }
-    return false;
-  case KC_LANG9: // QWERTY
-    if (record->event.pressed)
-    {
-      // press
-      if (is_smart_rus)
+      return false;
+    case KC_LANG9: // QWERTY
+      if (record->event.pressed)
       {
-        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+        // press
+        if (is_smart_rus)
+        {
+          SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+        }
+        is_smart_rus = false;
+        is_smart_rus_disable_counter = 0;
+        layer_off(1);
+        layer_on(12);
       }
-      is_smart_rus = false;
-      is_smart_rus_disable_counter = 0;
-      layer_off(1);
-      layer_on(12);
-    }
-    else
-    {
-      // release
-    }
-    return false; // Skip all further processing of this key
-  case KC_LANG7:  // English
-    if (record->event.pressed)
-    {
-      // press
-      if (is_smart_rus)
+      else
       {
-        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+        // release
       }
-      is_smart_rus = false;
-      is_smart_rus_disable_counter = 0;
-      layer_off(1);
-      layer_off(12);
-    }
-    else
-    {
-      // release
-    }
-    return false; // Skip all further processing of this key
-  case KC_LANG8:  // Russian
-    if (record->event.pressed)
-    {
-      // press
-      if (!is_smart_rus)
+      return false; // Skip all further processing of this key
+    case KC_LANG7:  // English
+      if (record->event.pressed)
       {
-        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+        // press
+        if (is_smart_rus)
+        {
+          SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+        }
+        is_smart_rus = false;
+        is_smart_rus_disable_counter = 0;
+        layer_off(1);
+        layer_off(12);
       }
-      is_smart_rus = true;
-      is_smart_rus_disable_counter = 0;
-      layer_on(1);
-      layer_off(12);
+      else
+      {
+        // release
+      }
+      return false; // Skip all further processing of this key
+    case KC_LANG8:  // Russian
+      if (record->event.pressed)
+      {
+        // press
+        if (!is_smart_rus)
+        {
+          SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+        }
+        is_smart_rus = true;
+        is_smart_rus_disable_counter = 0;
+        layer_on(1);
+        layer_off(12);
+      }
+      else
+      {
+        // release
+      }
+      return false; // Skip all further processing of this key
+    case MO(2):
+      smart_rus_toggle(record);
+      return true;
+    case MO(3):
+      smart_rus_toggle(record);
+      return true;
+    case MO(4):
+      smart_rus_toggle(record);
+      return true;
+    case MO(7):
+      smart_rus_toggle(record);
+      return true;
+    case KC_LCTRL:
+    case KC_RCTRL:
+    case KC_LALT:
+    case KC_RALT:
+    case KC_LGUI:
+    case KC_RGUI:
+      smart_rus_toggle_mod(keycode, record);
+      return false;
     }
-    else
-    {
-      // release
-    }
-    return false; // Skip all further processing of this key
-  case MO(2):
-    smart_rus_toggle(record);
-    return true;
-  case MO(3):
-    smart_rus_toggle(record);
-    return true;
-  case MO(4):
-    smart_rus_toggle(record);
-    return true;
-  case MO(7):
-    smart_rus_toggle(record);
-    return true;
-  }
   return true;
 }
