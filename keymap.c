@@ -265,30 +265,32 @@ void rgb_matrix_indicators_user(void)
 #define ALT_ANY (MOD_BIT(KC_LALT) | MOD_BIT(KC_RALT))
 #define GUI_ANY (MOD_BIT(KC_LGUI) | MOD_BIT(KC_RGUI))
 
-bool is_smart_rus = false;
-int is_smart_rus_disable_counter = 0;
+bool smart_rus_enabled = false;
+bool smart_rus_osm = false;
+bool smart_rus_first_after = false;
+int smart_rus_disable_counter = 0;
 
 void smart_rus_toggle(keyrecord_t *record)
 {
-  if (is_smart_rus)
+  if (smart_rus_enabled)
   {
     if (record->event.pressed)
     {
-      if (is_smart_rus_disable_counter == 0)
+      if (smart_rus_disable_counter == 0)
       {
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
-      is_smart_rus_disable_counter++;
+      smart_rus_disable_counter++;
     }
     else
     {
-      is_smart_rus_disable_counter--;
-      if (is_smart_rus_disable_counter == 0)
+      smart_rus_disable_counter--;
+      if ((smart_rus_disable_counter == 0) & !smart_rus_osm)
       {
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
     }
-    xprintf("A,%d,c%02d,r%02d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, is_smart_rus, is_smart_rus_disable_counter);
+    xprintf("A,%d,c%02d,r%02d,%d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, smart_rus_enabled, smart_rus_disable_counter, smart_rus_osm);
   }
 }
 
@@ -306,15 +308,40 @@ void smart_rus_toggle_mod(uint16_t keycode, keyrecord_t *record)
   }
 }
 
+void oneshot_mods_changed_user(uint8_t mods)
+{
+  if (mods & (GUI_ANY | ALT_ANY | CTRL_ANY | SHIFT_ANY ))
+  {
+    println("Oneshot mods");
+    if (smart_rus_enabled)
+    {
+      smart_rus_osm = true;
+    }
+  }
+  if (!mods)
+  {
+    println("Oneshot mods off");
+    if (smart_rus_enabled)
+    {
+      smart_rus_osm = false;
+      smart_rus_first_after = true;
+      
+    }
+  }
+}
+
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
-    xprintf("B,%d,c%02d,r%02d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, is_smart_rus, is_smart_rus_disable_counter);
-    // if (get_mods() & (GUI_ANY|ALT_ANY|CTRL_ANY)) {
-    // if (get_mods() & GUI_ANY) {
-    //   xprintf("mods rus\n");
-    //   smart_rus_toggle(record);
-    // }
-
+  xprintf("B,%d,c%02d,r%02d,%d,%d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, smart_rus_enabled, smart_rus_disable_counter, smart_rus_osm, smart_rus_first_after);
+  if (smart_rus_first_after & !record->event.pressed)
+  {
+    smart_rus_first_after=false;
+    unregister_code(keycode);
+    xprintf("smart_rus_first_after");
+    SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+    return false;
+  }
     switch (keycode)
     {
     case RGB_SLD:
@@ -345,12 +372,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       if (record->event.pressed)
       {
         // press
-        if (is_smart_rus)
+        if (smart_rus_enabled)
         {
           SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
         }
-        is_smart_rus = false;
-        is_smart_rus_disable_counter = 0;
+        smart_rus_enabled = false;
+        smart_rus_disable_counter = 0;
         layer_off(1);
         layer_on(12);
       }
@@ -363,12 +390,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       if (record->event.pressed)
       {
         // press
-        if (is_smart_rus)
+        if (smart_rus_enabled)
         {
           SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
         }
-        is_smart_rus = false;
-        is_smart_rus_disable_counter = 0;
+        smart_rus_enabled = false;
+        smart_rus_disable_counter = 0;
         layer_off(1);
         layer_off(12);
       }
@@ -381,12 +408,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       if (record->event.pressed)
       {
         // press
-        if (!is_smart_rus)
+        if (!smart_rus_enabled)
         {
           SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
         }
-        is_smart_rus = true;
-        is_smart_rus_disable_counter = 0;
+        smart_rus_enabled = true;
+        smart_rus_disable_counter = 0;
         layer_on(1);
         layer_off(12);
       }
