@@ -69,11 +69,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_DELETE, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
         KC_ENTER, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT),
     [3] = LAYOUT_moonlander(
-        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_PERC,
-        KC_TRANSPARENT, KC_SLASH, KC_LPRN, KC_RPRN, KC_MINUS, KC_PLUS, KC_TRANSPARENT, KC_TRANSPARENT, KC_EXLM, KC_QUES, KC_COLN, KC_SCOLON, KC_BSLASH, KC_CIRC,
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_SLASH, KC_LPRN, KC_RPRN, KC_MINUS, KC_PLUS, KC_TRANSPARENT, KC_TRANSPARENT, KC_EXLM, KC_QUES, KC_COLN, KC_SCOLON, KC_BSLASH, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_LBRACKET, KC_RBRACKET, KC_LCBR, KC_RCBR, KC_ASTR, KC_TRANSPARENT, KC_TRANSPARENT, KC_TILD, KC_DOT, KC_COMMA, KC_DQUO, KC_QUOTE, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_DLR, KC_LABK, KC_EQUAL, KC_RABK, KC_AT, KC_PIPE, KC_HASH, KC_UNDS, KC_AMPR, KC_GRAVE, KC_NO,
-        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, MO(11), KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, MO(11), KC_TRANSPARENT, KC_TRANSPARENT, KC_CIRC, KC_PERC, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT),
     [4] = LAYOUT_moonlander(
         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -176,7 +176,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
     [2] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {31, 255, 255}, {35, 255, 255}, {31, 255, 255}, {31, 255, 255}, {31, 255, 255}, {0, 0, 0}, {35, 255, 255}, {31, 255, 255}, {31, 255, 255}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {31, 255, 255}, {0, 0, 0}, {31, 255, 255}, {0, 0, 0}, {31, 255, 255}, {31, 255, 255}, {0, 0, 0}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {31, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
 
-    [3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
+    [3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {249, 228, 255}, {249, 228, 255}, {249, 228, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
 
     [4] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {146, 224, 255}, {32, 255, 234}, {146, 224, 255}, {32, 255, 234}, {0, 0, 0}, {146, 224, 255}, {146, 224, 255}, {146, 224, 255}, {85, 203, 158}, {0, 0, 0}, {146, 224, 255}, {146, 224, 255}, {146, 224, 255}, {146, 224, 255}, {0, 0, 0}, {146, 224, 255}, {146, 224, 255}, {146, 224, 255}, {32, 255, 234}, {0, 0, 0}, {0, 0, 0}, {0, 183, 238}, {85, 203, 158}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
 
@@ -310,7 +310,7 @@ void smart_rus_toggle_mod(uint16_t keycode, keyrecord_t *record)
 
 void oneshot_mods_changed_user(uint8_t mods)
 {
-  if (mods & (GUI_ANY | ALT_ANY | CTRL_ANY | SHIFT_ANY ))
+  if (mods & (GUI_ANY | ALT_ANY | CTRL_ANY | SHIFT_ANY))
   {
     println("Oneshot mods");
     if (smart_rus_enabled)
@@ -325,123 +325,121 @@ void oneshot_mods_changed_user(uint8_t mods)
     {
       smart_rus_osm = false;
       smart_rus_first_after = true;
-      
     }
   }
 }
-
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
   xprintf("B,%d,c%02d,r%02d,%d,%d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, smart_rus_enabled, smart_rus_disable_counter, smart_rus_osm, smart_rus_first_after);
   if (smart_rus_first_after & !record->event.pressed)
   {
-    smart_rus_first_after=false;
+    smart_rus_first_after = false;
     unregister_code(keycode);
     xprintf("smart_rus_first_after");
     SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
     return false;
   }
-    switch (keycode)
+  switch (keycode)
+  {
+  case RGB_SLD:
+    if (record->event.pressed)
     {
-    case RGB_SLD:
-      if (record->event.pressed)
-      {
-        rgblight_mode(1);
-      }
-      return false;
-    case KC_BSPACE:
-      if (record->event.pressed)
-      {
-        if (get_mods() & SHIFT_ANY)
-        {
-          register_code(KC_DEL);
-        }
-        else
-        {
-          register_code(KC_BSPACE);
-        }
-      }
-      else
-      {
-        unregister_code(KC_DEL);
-        unregister_code(KC_BSPACE);
-      }
-      return false;
-    case KC_LANG9: // QWERTY
-      if (record->event.pressed)
-      {
-        // press
-        if (smart_rus_enabled)
-        {
-          SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
-        }
-        smart_rus_enabled = false;
-        smart_rus_disable_counter = 0;
-        layer_off(1);
-        layer_on(12);
-      }
-      else
-      {
-        // release
-      }
-      return false; // Skip all further processing of this key
-    case KC_LANG7:  // English
-      if (record->event.pressed)
-      {
-        // press
-        if (smart_rus_enabled)
-        {
-          SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
-        }
-        smart_rus_enabled = false;
-        smart_rus_disable_counter = 0;
-        layer_off(1);
-        layer_off(12);
-      }
-      else
-      {
-        // release
-      }
-      return false; // Skip all further processing of this key
-    case KC_LANG8:  // Russian
-      if (record->event.pressed)
-      {
-        // press
-        if (!smart_rus_enabled)
-        {
-          SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
-        }
-        smart_rus_enabled = true;
-        smart_rus_disable_counter = 0;
-        layer_on(1);
-        layer_off(12);
-      }
-      else
-      {
-        // release
-      }
-      return false; // Skip all further processing of this key
-    case MO(2):
-      smart_rus_toggle(record);
-      return true;
-    case MO(3):
-      smart_rus_toggle(record);
-      return true;
-    case MO(4):
-      smart_rus_toggle(record);
-      return true;
-    case MO(7):
-      smart_rus_toggle(record);
-      return true;
-    case KC_LCTRL:
-    case KC_RCTRL:
-    case KC_LALT:
-    case KC_RALT:
-    case KC_LGUI:
-    case KC_RGUI:
-      smart_rus_toggle_mod(keycode, record);
-      return false;
+      rgblight_mode(1);
     }
+    return false;
+  case KC_BSPACE:
+    if (record->event.pressed)
+    {
+      if (get_mods() & SHIFT_ANY)
+      {
+        register_code(KC_DEL);
+      }
+      else
+      {
+        register_code(KC_BSPACE);
+      }
+    }
+    else
+    {
+      unregister_code(KC_DEL);
+      unregister_code(KC_BSPACE);
+    }
+    return false;
+  case KC_LANG9: // QWERTY
+    if (record->event.pressed)
+    {
+      // press
+      if (smart_rus_enabled)
+      {
+        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+      }
+      smart_rus_enabled = false;
+      smart_rus_disable_counter = 0;
+      layer_off(1);
+      layer_on(12);
+    }
+    else
+    {
+      // release
+    }
+    return false; // Skip all further processing of this key
+  case KC_LANG7:  // English
+    if (record->event.pressed)
+    {
+      // press
+      if (smart_rus_enabled)
+      {
+        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+      }
+      smart_rus_enabled = false;
+      smart_rus_disable_counter = 0;
+      layer_off(1);
+      layer_off(12);
+    }
+    else
+    {
+      // release
+    }
+    return false; // Skip all further processing of this key
+  case KC_LANG8:  // Russian
+    if (record->event.pressed)
+    {
+      // press
+      if (!smart_rus_enabled)
+      {
+        SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
+      }
+      smart_rus_enabled = true;
+      smart_rus_disable_counter = 0;
+      layer_on(1);
+      layer_off(12);
+    }
+    else
+    {
+      // release
+    }
+    return false; // Skip all further processing of this key
+  case MO(2):
+    smart_rus_toggle(record);
+    return true;
+  case MO(3):
+    smart_rus_toggle(record);
+    return true;
+  case MO(4):
+    smart_rus_toggle(record);
+    return true;
+  case MO(7):
+    smart_rus_toggle(record);
+    return true;
+  case KC_LCTRL:
+  case KC_RCTRL:
+  case KC_LALT:
+  case KC_RALT:
+  case KC_LGUI:
+  case KC_RGUI:
+    smart_rus_toggle_mod(keycode, record);
+    return false;
+  }
   return true;
 }
