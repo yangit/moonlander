@@ -188,7 +188,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
     [11] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {105, 255, 255}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
 
-    [12] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {85, 203, 158}, {0, 0, 0}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}},
+    [12] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}, {85, 203, 158}},
 
 };
 
@@ -271,11 +271,11 @@ void smart_rus_toggle(keyrecord_t *record)
     // press
     if (is_smart_rus)
     {
-      is_smart_rus_disable_counter++;
-      if (is_smart_rus_disable_counter == 1)
+      if (is_smart_rus_disable_counter == 0)
       {
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
+      is_smart_rus_disable_counter++;
     }
   }
   else
@@ -283,21 +283,21 @@ void smart_rus_toggle(keyrecord_t *record)
     // release
     if (is_smart_rus)
     {
-      if (is_smart_rus_disable_counter == 1)
+      is_smart_rus_disable_counter--;
+      if (is_smart_rus_disable_counter == 0)
       {
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
-      is_smart_rus_disable_counter--;
     }
   }
+  xprintf("A,%d,c%02d,r%02d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, is_smart_rus, is_smart_rus_disable_counter);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
-  if (record->event.pressed)
-  {
-    xprintf("c%02d,r%02d\n", record->event.key.col, record->event.key.row);
-  }
+
+  xprintf("B,%d,c%02d,r%02d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, is_smart_rus, is_smart_rus_disable_counter);
+
   switch (keycode)
   {
   case RGB_SLD:
@@ -333,6 +333,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
       is_smart_rus = false;
+      is_smart_rus_disable_counter = 0;
       layer_off(1);
       layer_on(12);
     }
@@ -350,6 +351,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
       is_smart_rus = false;
+      is_smart_rus_disable_counter = 0;
       layer_off(1);
       layer_off(12);
     }
@@ -367,6 +369,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
       is_smart_rus = true;
+      is_smart_rus_disable_counter = 0;
       layer_on(1);
       layer_off(12);
     }
