@@ -1,32 +1,5 @@
-#include QMK_KEYBOARD_H
-#include "version.h"
-#include "debug.h"
-// #include "keymap_german.h"
-// #include "keymap_nordic.h"
-// #include "keymap_french.h"
-// #include "keymap_spanish.h"
-// #include "keymap_hungarian.h"
-// #include "keymap_swedish.h"
-// #include "keymap_br_abnt2.h"
-// #include "keymap_canadian_multilingual.h"
-// #include "keymap_german_ch.h"
-// #include "keymap_jp.h"
-// #include "keymap_bepo.h"
-// #include "keymap_italian.h"
-// #include "keymap_slovenian.h"
-// #include "keymap_danish.h"
-// #include "keymap_norwegian.h"
-// #include "keymap_portuguese.h"
-// #include "keymap_contributions.h"
-// #include "keymap_czech.h"
-// #include "keymap_romanian.h"
-// #include "keymap_russian.h"
-// #include "keymap_uk.h"
-// #include "keymap_estonian.h"
 
-
-
-//
+//Footer start
 #define SHIFT_ANY (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT))
 #define CTRL_ANY (MOD_BIT(KC_LCTRL) | MOD_BIT(KC_RCTRL))
 #define ALT_ANY (MOD_BIT(KC_LALT) | MOD_BIT(KC_RALT))
@@ -65,15 +38,20 @@ void smart_rus_toggle_mod(uint16_t keycode, keyrecord_t *record)
 {
   if (record->event.pressed)
   {
-    smart_rus_toggle(record);
-    layer_off(1);
+    if (smart_rus_enabled){
+      smart_rus_toggle(record);
+      layer_off(1);
+    }
     register_code(keycode);
   }
   else
   {
     unregister_code(keycode);
-    layer_on(1);
-    smart_rus_toggle(record);
+    if (smart_rus_enabled)
+    {
+      layer_on(1);
+      smart_rus_toggle(record);
+    }
   }
 }
 
@@ -220,3 +198,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
   }
   return true;
 }
+// Footer end
