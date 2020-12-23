@@ -113,7 +113,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
   case KC_LANG9: // QWERTY
     if (record->event.pressed)
     {
-      // press
+      // press 
       if (smart_rus_enabled)
       {
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
@@ -124,10 +124,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       smart_rus_first_after = false;
       layer_off(1);
       layer_on(12);
-    }
-    else
-    {
-      // release
     }
     return false; // Skip all further processing of this key
   case KC_LANG7:  // English
@@ -145,10 +141,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       layer_off(1);
       layer_off(12);
     }
-    else
-    {
-      // release
-    }
     return false; // Skip all further processing of this key
   case KC_LANG8:  // Russian
     if (record->event.pressed)
@@ -164,10 +156,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       smart_rus_first_after = false;
       layer_on(1);
       layer_off(12);
-    }
-    else
-    {
-      // release
     }
     return false; // Skip all further processing of this key
   case MO(2):
