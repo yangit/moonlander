@@ -8,6 +8,7 @@
 bool smart_rus_enabled = false;
 bool smart_rus_osm = false;
 bool smart_rus_first_after = false;
+bool arrow_layer_should_stay_on = false;
 int smart_rus_disable_counter = 0;
 
 void smart_rus_toggle(keyrecord_t *record)
@@ -158,17 +159,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       layer_off(2);
     }
     return false; // Skip all further processing of this key
+  case MO(10):
+    smart_rus_toggle(record);
+    return true;
+  case MO(5): // This is an Arrow layer
+    smart_rus_toggle(record);
+    if (record->event.pressed)
+    {
+      arrow_layer_should_stay_on = true;
+    } else {
+      arrow_layer_should_stay_on = false;
+    }
+      return true;
+  case MO(7):
+    smart_rus_toggle(record);
+    return true;
   case MO(8):
     smart_rus_toggle(record);
     return true;
-  case MO(3):
-    smart_rus_toggle(record);
-    return true;
-  case MO(4):
-    smart_rus_toggle(record);
-    return true;
-  case MO(5):
-    smart_rus_toggle(record);
+  case MO(6): // This is RRed layer
+    // Make sure that arrow layer is always under ArrowRed 
+    if (record->event.pressed)
+    {
+      layer_on(5);
+    } else {
+      if (!arrow_layer_should_stay_on)
+      {
+        // disable only if Arrow layer button not pressed 
+        layer_off(5);
+      }
+    }
     return true;
   case KC_LCTRL:
   case KC_RCTRL:
