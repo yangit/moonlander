@@ -18,6 +18,7 @@ void smart_rus_toggle(keyrecord_t *record)
     {
       if (smart_rus_disable_counter == 0)
       {
+        layer_off(1);
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
       smart_rus_disable_counter++;
@@ -27,6 +28,7 @@ void smart_rus_toggle(keyrecord_t *record)
       smart_rus_disable_counter--;
       if ((smart_rus_disable_counter == 0) & !smart_rus_osm)
       {
+        layer_on(1);
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
     }
@@ -38,20 +40,13 @@ void smart_rus_toggle_mod(uint16_t keycode, keyrecord_t *record)
 {
   if (record->event.pressed)
   {
-    if (smart_rus_enabled){
-      smart_rus_toggle(record);
-      layer_off(1);
-    }
+    smart_rus_toggle(record);
     register_code(keycode);
   }
   else
   {
     unregister_code(keycode);
-    if (smart_rus_enabled)
-    {
-      layer_on(1);
-      smart_rus_toggle(record);
-    }
+    smart_rus_toggle(record);
   }
 }
 
