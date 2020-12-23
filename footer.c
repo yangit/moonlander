@@ -123,7 +123,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       smart_rus_osm = false;
       smart_rus_first_after = false;
       layer_off(1);
-      layer_on(12);
+      layer_on(2);
     }
     return false; // Skip all further processing of this key
   case KC_LANG7:  // English
@@ -139,7 +139,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       smart_rus_osm = false;
       smart_rus_first_after = false;
       layer_off(1);
-      layer_off(12);
+      layer_off(2);
     }
     return false; // Skip all further processing of this key
   case KC_LANG8:  // Russian
@@ -155,10 +155,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       smart_rus_osm = false;
       smart_rus_first_after = false;
       layer_on(1);
-      layer_off(12);
+      layer_off(2);
     }
     return false; // Skip all further processing of this key
-  case MO(2):
+  case MO(8):
     smart_rus_toggle(record);
     return true;
   case MO(3):
@@ -167,7 +167,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
   case MO(4):
     smart_rus_toggle(record);
     return true;
-  case MO(7):
+  case MO(5):
     smart_rus_toggle(record);
     return true;
   case KC_LCTRL:
