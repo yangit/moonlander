@@ -33,7 +33,7 @@ void smart_rus_toggle(keyrecord_t *record)
         SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
       }
     }
-    xprintf("A,%d,c%02d,r%02d,%d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, smart_rus_enabled, smart_rus_disable_counter, smart_rus_osm);
+    // xprintf("A,%d,c%02d,r%02d,%d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, smart_rus_enabled, smart_rus_disable_counter, smart_rus_osm);
   }
 }
 
@@ -75,12 +75,12 @@ void oneshot_mods_changed_user(uint8_t mods)
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
-  xprintf("B,%d,c%02d,r%02d,%d,%d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, smart_rus_enabled, smart_rus_disable_counter, smart_rus_osm, smart_rus_first_after);
+  // xprintf("B,%d,c%02d,r%02d,%d,%d,%d,%d\n", record->event.pressed, record->event.key.col, record->event.key.row, smart_rus_enabled, smart_rus_disable_counter, smart_rus_osm, smart_rus_first_after);
   if (smart_rus_first_after & !record->event.pressed)
   {
     smart_rus_first_after = false;
     unregister_code(keycode);
-    xprintf("smart_rus_first_after\n");
+    // xprintf("smart_rus_first_after\n");
     SEND_STRING(SS_LCMD(SS_LALT(SS_TAP(X_SPC))));
     layer_on(1);
     return false;
